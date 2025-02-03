@@ -6,6 +6,7 @@ This is a work-in-progress JavaFX-based Tic-Tac-Toe game with client-server netw
 
 **Features (Currently Implemented)
 **
+
 JavaFX UI with multiple scenes.
 
 Client connects to a server using socket-based networking.
@@ -16,6 +17,7 @@ Basic room creation and joining system.
 
 **Features in Development
 **
+
 Implementation of Tic-Tac-Toe game logic.
 
 Server-side room management and game state handling.
@@ -24,7 +26,9 @@ Improved UI design and user interaction.
 
 Error handling and optimized communication.
 
+
 **Notes**
+
 
 This project is not yet complete and is actively being developed.
 
