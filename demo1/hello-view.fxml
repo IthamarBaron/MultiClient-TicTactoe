@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.example.demo1.HelloController"
+           style="-fx-background-color: #4A90E2; -fx-padding: 20;">
+
+    <VBox alignment="CENTER" spacing="15">
+
+        <!-- Title -->
+        <Label text="CONNECT TO SERVER"
+               style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+        <!-- IP Input Field -->
+        <TextField fx:id="ipAddressField"
+                   promptText="Enter server IP..."
+                   maxWidth="250"
+                   style="-fx-background-color: #D9D9D9;
+                  -fx-border-color: black;
+                  -fx-border-radius: 5;
+                  -fx-padding: 5;"/>
+
+        <!-- Connect Button -->
+        <Button fx:id="connectButton" text="Connect"
+                onAction="#onConnectButtonClick"
+                style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-border-radius: 5;"/>
+
+        <!-- Status Label -->
+        <Label fx:id="statusLabel" text=""
+               style="-fx-text-fill: white; -fx-font-size: 14px;"/>
+
+    </VBox>
+</StackPane>
