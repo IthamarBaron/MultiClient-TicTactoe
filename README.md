@@ -1,4 +1,4 @@
-#JavaFX Tic-Tac-Toe (Work in Progress)
+# JavaFX Tic-Tac-Toe (Work in Progress)
 
 **Overview**
 
