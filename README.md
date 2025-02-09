@@ -60,6 +60,20 @@ Each packet follows the format:
    - A game result screen will show the winner or a draw.
    - Click **Exit** to leave the game and disconnect from the server.
 
+## Screenshots
+
+### Game Board in Action  
+![Game Board](ScreenShotsExamples/game-board.jpg)
+
+### Room Selection and Joining  
+![Room Selection](ScreenShotsExamples/room-selection.jpg)
+
+### Game Result Screen  
+![Game Result](ScreenShotsExamples/game-result.jpg)
+
+### Server Connection Screen  
+![Server Connection](ScreenShotsExamples/connect-screen.jpg)
+
 ## Notes
 I built this while being very busy with other assignments and exams. for that reason, some features are "flunky" and there are better approaches to doing them.
 They might be improved later on.
