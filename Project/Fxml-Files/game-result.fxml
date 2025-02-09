@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.example.demo1.GameResultController"
+           style="-fx-background-color: #4A90E2; -fx-padding: 20;">
+
+    <!-- Confetti Effect Pane -->
+    <Pane fx:id="confettiPane" />
+
+    <VBox alignment="CENTER" spacing="20">
+        <!-- Game Result Title -->
+        <Label fx:id="resultLabel" text="Player X Wins!"
+               style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: black;"/>
+
+        <!-- Exit Button -->
+        <Button fx:id="menuButton" text="Exit the Game"
+                onAction="#onMenuButtonClick"
+                style="-fx-font-size: 20px; -fx-background-color: linear-gradient(to bottom, #e32736, #bf0d1c);
+                       -fx-text-fill: black; -fx-padding: 15 35; -fx-font-weight: bold;
+                       -fx-border-color: black; -fx-border-width: 1.5;"/>
+    </VBox>
+
+</StackPane>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo1.RoomController"
+            style="-fx-background-color: #4A90E2; -fx-padding: 20;"
+            prefWidth="440" prefHeight="440">
+
+    <!-- Room ID Display -->
+    <top>
+        <VBox alignment="CENTER">
+            <Label fx:id="roomIdLabel" text="Room ID: 1234"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: black;"/>
+            <Label fx:id="currentTurnLabel" text="Current Turn: Player 1"
+                   style="-fx-font-size: 18px; -fx-text-fill: white;"/>
+        </VBox>
+    </top>
+
+    <!-- Tic-Tac-Toe Board -->
+    <center>
+        <StackPane alignment="CENTER">
+            <GridPane fx:id="ticTacToeBoard" hgap="5" vgap="5" alignment="CENTER"
+                      style="-fx-border-color: black; -fx-border-width: 6px; -fx-padding: 5;">
+                <!-- Tic-Tac-Toe Buttons -->
+                <Button fx:id="cell00" onAction="#handleCellClick" GridPane.columnIndex="0" GridPane.rowIndex="0"
+                        style="-fx-font-size: 32px; -fx-min-width: 100px; -fx-min-height: 100px;
+                               -fx-border-color: black; -fx-border-width: 5px; -fx-background-color: transparent;"/>
+                <Button fx:id="cell01" onAction="#handleCellClick" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                        style="-fx-font-size: 32px; -fx-min-width: 100px; -fx-min-height: 100px;
+                               -fx-border-color: black; -fx-border-width: 5px; -fx-background-color: transparent;"/>
+                <Button fx:id="cell02" onAction="#handleCellClick" GridPane.columnIndex="2" GridPane.rowIndex="0"
+                        style="-fx-font-size: 32px; -fx-min-width: 100px; -fx-min-height: 100px;
+                               -fx-border-color: black; -fx-border-width: 5px; -fx-background-color: transparent;"/>
+
+                <Button fx:id="cell10" onAction="#handleCellClick" GridPane.columnIndex="0" GridPane.rowIndex="1"
+                        style="-fx-font-size: 32px; -fx-min-width: 100px; -fx-min-height: 100px;
+                               -fx-border-color: black; -fx-border-width: 5px; -fx-background-color: transparent;"/>
+                <Button fx:id="cell11" onAction="#handleCellClick" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                        style="-fx-font-size: 32px; -fx-min-width: 100px; -fx-min-height: 100px;
+                               -fx-border-color: black; -fx-border-width: 5px; -fx-background-color: transparent;"/>
+                <Button fx:id="cell12" onAction="#handleCellClick" GridPane.columnIndex="2" GridPane.rowIndex="1"
+                        style="-fx-font-size: 32px; -fx-min-width: 100px; -fx-min-height: 100px;
+                               -fx-border-color: black; -fx-border-width: 5px; -fx-background-color: transparent;"/>
+
+                <Button fx:id="cell20" onAction="#handleCellClick" GridPane.columnIndex="0" GridPane.rowIndex="2"
+                        style="-fx-font-size: 32px; -fx-min-width: 100px; -fx-min-height: 100px;
+                               -fx-border-color: black; -fx-border-width: 5px; -fx-background-color: transparent;"/>
+                <Button fx:id="cell21" onAction="#handleCellClick" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                        style="-fx-font-size: 32px; -fx-min-width: 100px; -fx-min-height: 100px;
+                               -fx-border-color: black; -fx-border-width: 5px; -fx-background-color: transparent;"/>
+                <Button fx:id="cell22" onAction="#handleCellClick" GridPane.columnIndex="2" GridPane.rowIndex="2"
+                        style="-fx-font-size: 32px; -fx-min-width: 100px; -fx-min-height: 100px;
+                               -fx-border-color: black; -fx-border-width: 5px; -fx-background-color: transparent;"/>
+            </GridPane>
+        </StackPane>
+    </center>
+
+    <!-- Player List -->
+    <right>
+        <VBox spacing="10" alignment="CENTER">
+            <Label text="Players:" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white; -fx-underline: true;"/>
+            <Label fx:id="playerOneLabel" text="Player 1" style="-fx-font-size: 16px; -fx-text-fill: white;"/>
+            <Label fx:id="playerTwoLabel" text="Player 2" style="-fx-font-size: 16px; -fx-text-fill: white;"/>
+        </VBox>
+    </right>
+</BorderPane>
