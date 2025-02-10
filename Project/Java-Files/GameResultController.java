@@ -18,6 +18,10 @@ public class GameResultController {
     @FXML private Label resultLabel;
     @FXML private Button menuButton;
     @FXML private Pane confettiPane;
+    @FXML private Label xWinsLabel;
+    @FXML private Label oWinsLabel;
+    @FXML private Label drawsLabel;
+
 
     private static final int CONFETTI_COUNT = 40;
     private static final Random random = new Random();
@@ -36,15 +40,19 @@ public class GameResultController {
     public void initialize() {
         instance = this;
         startConfettiEffect();
+
     }
 
-    public void setGameResult(String resultText) {
-        Platform.runLater(() -> resultLabel.setText(resultText));
+    public void setGameResult(String resultText, int xWins, int oWins, int draws) {
+            resultLabel.setText(resultText);
+            xWinsLabel.setText("X Wins: " + xWins);
+            oWinsLabel.setText("O Wins: " + oWins);
+            drawsLabel.setText("Draws: " + draws);
     }
+
 
     @FXML
     private void onMenuButtonClick() {
-
         Platform.exit();
         System.exit(0);
     }
@@ -54,7 +62,6 @@ public class GameResultController {
         timeline.setCycleCount(CONFETTI_COUNT);
         timeline.play();
     }
-
     private void createConfetti() {
         Platform.runLater(() -> {
             Circle confetti = new Circle(6, Color.color(random.nextDouble(), random.nextDouble(), random.nextDouble()));
