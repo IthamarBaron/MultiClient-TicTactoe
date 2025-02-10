@@ -39,7 +39,7 @@ public class Main extends Application {
 
                 if (fxmlFile.equals("game-result.fxml")) {
                     GameResultController controller = loader.getController();
-                    controller.setGameResult(resultText);
+                    //controller.setGameResult(resultText);
                 }
                 else if (fxmlFile.equals("room.fxml")) {
                     primaryStage.setWidth(480);
