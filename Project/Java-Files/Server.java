@@ -15,6 +15,7 @@ public class Server {
     private static final Map<Integer, List<String>> rooms = new ConcurrentHashMap<>();
     private static final Map<Integer, List<ClientThread>> roomClients = new ConcurrentHashMap<>();
     private static final Map<Integer, GameState> roomGameStates = new ConcurrentHashMap<>();
+    private static DatabaseManager dbManager = new DatabaseManager();
 
     private static final List<BiConsumer<DataInputStream, ClientThread>> packetHandlers = new ArrayList<>();
 
@@ -25,6 +26,7 @@ public class Server {
 
     private static void startServer() {
         try {
+
             serverSocket = new ServerSocket(PORT);
             System.out.println("Server started on port " + PORT);
 
@@ -239,12 +241,18 @@ public class Server {
 
         char winner = gameState.checkWinner();
         if (winner != '\0') {
+            dbManager.updateScore(winner);
+            int[] winCounts = dbManager.getScores();
+
             for (ClientThread c : clients) {
-                c.sendPacket(3, "WIN," + winner);
+                c.sendPacket(3, "WIN," + winner + "," + winCounts[0] + "," + winCounts[1] + "," + winCounts[2]);
             }
         } else if (gameState.isBoardFull()) {
+            dbManager.updateScore('D');
+            int[] winCounts = dbManager.getScores();
+
             for (ClientThread c : clients) {
-                c.sendPacket(3, "DRAW");
+                c.sendPacket(3, "DRAW, ," + winCounts[0] + "," + winCounts[1] + "," + winCounts[2]);
             }
         }
 
