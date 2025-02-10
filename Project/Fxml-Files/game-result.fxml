@@ -13,6 +13,14 @@
     <!-- Confetti Effect Pane -->
     <Pane fx:id="confettiPane" />
 
+    <!-- Score Display at Bottom Left -->
+    <VBox alignment="BOTTOM_LEFT" spacing="5" style="-fx-padding: 10; -fx-alignment: bottom-left;">
+        <Label text="Game Statistics:" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+        <Label fx:id="xWinsLabel" text="X Wins: 0" style="-fx-font-size: 16px; -fx-text-fill: white;"/>
+        <Label fx:id="oWinsLabel" text="O Wins: 0" style="-fx-font-size: 16px; -fx-text-fill: white;"/>
+        <Label fx:id="drawsLabel" text="Draws: 0" style="-fx-font-size: 16px; -fx-text-fill: white;"/>
+    </VBox>
+
     <VBox alignment="CENTER" spacing="20">
         <!-- Game Result Title -->
         <Label fx:id="resultLabel" text="Player X Wins!"
@@ -25,5 +33,6 @@
                        -fx-text-fill: black; -fx-padding: 15 35; -fx-font-weight: bold;
                        -fx-border-color: black; -fx-border-width: 1.5;"/>
     </VBox>
+
 
 </StackPane>
