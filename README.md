@@ -7,11 +7,13 @@ This is a JavaFX-based **Multiplayer Tic-Tac-Toe** game. The project utilizes **
 - **JavaFX UI**: Clean, modern, and responsive UI with intuitive controls.
 - **Packet-Based Communication**: The server and clients communicate using a structured packet protocol.
 - **Game State Management**: The server keeps track of game states, turns, and validates moves.
+- **Persistent Score Tracking:** The server keeps track of the number of times X and O have won using a simple database, using JDBC
 
 ## Architecture
 - **Server**: Handles client connections, manages game rooms, and enforces game rules.
 - **Client**: Provides a GUI to interact with the game and sends/receives updates from the server.
 - **Game State Management**: Tracks player moves, validates turns, and determines game outcomes.
+- **Database Integration**: Uses JSON as a lightweight database to track game statistics.
 
 ## Folder Structure
 ```
@@ -25,14 +27,13 @@ This is a JavaFX-based **Multiplayer Tic-Tac-Toe** game. The project utilizes **
 │   ├── GameState.java             # Manages the Tic-Tac-Toe board state
 │   ├── GameResultController.java  # Displays the game results (win/loss/draw)
 │   ├── HelloController.java       # Displays the connection screen (input IP)
+│   ├── DatabaseManager.java       # Manages persistent game statistics
 │── resources
-│   ├── fxml/
+│   ├── com.example.demo1
 │   │   ├── hello-view.fxml        # Welcome screen
 │   │   ├── ctg.fxml               # Room connection screen
 │   │   ├── room.fxml              # Tic-Tac-Toe game screen
 │   │   ├── game-result.fxml       # Game result screen
-│   ├── styles/
-│   │   ├── style.css              # Custom JavaFX styles
 ```
 
 ## Communication Protocol
@@ -47,6 +48,26 @@ Each packet follows the format:
 - `3, row, col, symbol` → Player move
 - `4, ""` → Game End
 
+## Database Integration
+The game uses a simple JSON-based database for tracking wins instead of a traditional SQL database. The DatabaseManager.java class manages this.
+
+### Database Operations:
+- **Initialize Database** : Creates a game_stats.json file if it doesn’t exist and initializes it with X_Wins: 0, O_Wins: 0, and Draws: 0.
+
+- **Update Score** : Whenever a player wins or a draw occurs, the corresponding count in the JSON file is incremented.
+
+- **Fetch Scores** : Retrieves the total number of X wins, O wins, and draws from the database.
+
+**Example JSON File** (`game_stats.json`):
+```
+{
+  "X_Wins": 12,
+  "O_Wins": 9,
+  "Draws": 3
+}
+```
+
+
 ## How to Use
 1. **Run the Server**: Start `Server.java` to initialize the server.
 2. **Launch the Client**: Run `Main.java` to start the JavaFX UI.
@@ -59,6 +80,7 @@ Each packet follows the format:
 5. **Game End & Exit**:
    - A game result screen will show the winner or a draw.
    - Click **Exit** to leave the game and disconnect from the server.
+   - The game statistics are updated and stored in `game_stats.json`.
 
 ## Screenshots
 
