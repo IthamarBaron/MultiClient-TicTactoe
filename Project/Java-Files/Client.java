@@ -203,12 +203,15 @@ public class Client {
 
         // Read the data
         String[] dataParts = data.split(",");
-        if (dataParts.length == 0) {
+        if (dataParts.length < 3) {  // Ensure we have at least WIN/DRAW + 3 statistics
             System.out.println("[ERROR] Invalid game end packet.");
             return;
         }
 
         String resultText;
+        int xWins = Integer.parseInt(dataParts[2]);  // X wins count
+        int oWins = Integer.parseInt(dataParts[3]);  // O wins count
+        int draws = Integer.parseInt(dataParts[4]);  // Draw count
 
         // Determine the game result
         if (dataParts[0].equals("DRAW")) {
@@ -221,9 +224,21 @@ public class Client {
             return;
         }
 
-        Main.switchScene("game-result.fxml", resultText);
+
+
+        // Switch to the game result screen
+        Main.switchScene("game-result.fxml",resultText);
+
+
+        Platform.runLater(() -> {
+            GameResultController controller = GameResultController.getInstance();
+            controller.setGameResult(resultText, xWins, oWins, draws);
+        });
+
+        // Send leave packet
         Main.client.sendPacket(4, "");
     }
+
 
 
     public static void main(String[] args) {
